@@ -78,7 +78,7 @@
 
           <div>
             <label class="block text-sm font-medium mb-2">Relationship</label>
-            <select name="gender"
+            <select name="relation"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required>
               <option value="father" selected>Father</option>
