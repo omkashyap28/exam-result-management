@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RouteController extends Controller
@@ -46,9 +47,11 @@ class RouteController extends Controller
     // teachers
     public function teacher_dashboard_route()
     {
-        return view("dashboards.teacher");
+        $user = Auth::user();
+        return view("dashboards.teacher", compact("user"));
     }
-    public function teacher_upload_marks_route(){
+    public function teacher_upload_marks_route()
+    {
         return view("forms.marks_form");
     }
 }
