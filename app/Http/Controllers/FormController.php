@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
@@ -28,5 +29,26 @@ class FormController extends Controller
         } else {
             return redirect()->back()->withErrors($addmission_response);
         }
+    }
+
+    public function login_form_route(Request $request)
+    {
+        $credentials = $request->validate([
+            "unique_id" => "required",
+            "password" => "required",
+        ]);
+        if (Auth::attempt($credentials)) {
+            if (Auth::user()->admin == true)
+                return redirect()->route("admin_dashboard");
+
+            if (Auth::user()->admin == false)
+                return redirect()->route("teacher_dashboard");
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route("home");
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RouteController extends Controller
 {
@@ -30,7 +31,8 @@ class RouteController extends Controller
     }
     public function teachers_route()
     {
-        return view("pages.teachers");
+        $all_users = DB::table("users")->get();
+        return view("pages.teachers", ["users" => $all_users]);
     }
     public function students_route()
     {
