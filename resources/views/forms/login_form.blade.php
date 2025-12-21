@@ -10,9 +10,9 @@
       <h1 class="text-3xl font-semibold tracking-wide mb-5">
         Login
       </h1>
-      <form action="#" method="GET" class="space-y-5">
+      <form action="{{ route("login_user") }}" method="POST" class="space-y-5">
         @csrf
-        <input type="text" name="id" id="id" max="14" placeholder="id" aria-required=""
+        <input type="text" name="unique_id" id="unique_id" max="14" placeholder="id" aria-required=""
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
         <input type="password" name="password" id="password" placeholder="password" required
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">

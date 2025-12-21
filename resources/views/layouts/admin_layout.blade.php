@@ -20,16 +20,19 @@
               Logo
             </a>
             <div class="flex gap-3 items-center">
-              <a href="{{ route("dashboard") }}" class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">DASHBOARD</a>
-              <a href="{{ route("teachers") }}" class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">TEACHERS</a>
-              <a href="{{ route("student") }}" class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">STUDENTS</a>
+              <a href="{{ route("admin_dashboard") }}"
+                class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">DASHBOARD</a>
+              <a href="{{ route("teachers") }}"
+                class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">TEACHERS</a>
+              <a href="{{ route("student") }}"
+                class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">STUDENTS</a>
               <a href="{{ route("admission") }}"
                 class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">ADMISSIONS</a>
-              <a href=""
-              class="bg-white px-2 py-1 rounded ml-4 text-lg tracking-wide font-semibold text-blue-500">
+              <a href="{{ route("logout") }}"
+                class="bg-white px-2 py-1 rounded ml-4 text-lg tracking-wide font-semibold text-blue-500">
                 Logout
-</a>
-              </div>
+              </a>
+            </div>
           </div>
         </nav>
       </header>

@@ -21,7 +21,7 @@
             </a>
             <div class="flex gap-3 items-center">
               <a href="#" class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">DASHBOARD</a>
-              <a href="#" class="bg-white px-2 py-1 rounded ml-4 text-lg tracking-wide font-semibold text-blue-500">
+              <a href="{{ route("logout") }}" class="bg-white px-2 py-1 rounded ml-4 text-lg tracking-wide font-semibold text-blue-500">
                 Logout
               </a>
             </div>
