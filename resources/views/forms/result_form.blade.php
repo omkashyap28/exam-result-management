@@ -10,16 +10,20 @@
       <h1 class="text-3xl font-semibold tracking-wide mb-5">
         Result
       </h1>
-      <form action="#" method="GET" class="space-y-5">
-        <input type="text" name="student_id" id="student_id" max="14" placeholder="Student id" aria-required=""
+      <form action="{{ route("result_show") }}" method="GET" class="space-y-5">
+        <input type="text" name="roll_number" id="roll_number" max="14" placeholder="Student id" aria-required=""
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
-        <input type="date" name="student_dob" id="student_dob" placeholder="Student DOB" required
+        <input type="emial" name="student_email" id="student_email" placeholder="Student email" required
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
         <button type="submit"
           class="block w-74 rounded-md text-xl text-white bg-blue-500 hover:bg-blue-400 outline-none px-3 py-2">
           Search
         </button>
-
+        @php
+          if (isset($error) && !empty($error)) {
+            echo '<div class="text-red-500 text-sm mt-2">' . htmlspecialchars($error) . '</div>';
+          }
+        @endphp
       </form>
     </div>
   </div>

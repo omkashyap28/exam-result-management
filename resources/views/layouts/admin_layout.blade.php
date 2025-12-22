@@ -20,6 +20,12 @@
               Logo
             </a>
             <div class="flex gap-3 items-center">
+            <a href="{{ route("home") }}"
+                class="text-[17px] tracking-wide font-semibold  text-gray-100 hover:text-black">HOME</a>
+              <a href="{{ route("result") }}"
+                class="text-[17px] tracking-wide font-semibold  text-gray-100 hover:text-black">RESULTS</a>
+              <a href="{{ route("updates") }}"
+                class="text-[17px] tracking-wide font-semibold  text-gray-100 hover:text-black">UPDATES</a>
               <a href="{{ route("admin_dashboard") }}"
                 class="text-[16px] tracking-wide font-semibold text-gray-100 hover:text-black">DASHBOARD</a>
               <a href="{{ route("teachers") }}"

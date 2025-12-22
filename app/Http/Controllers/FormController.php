@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\alert;
 
 class FormController extends Controller
 {
@@ -44,6 +45,21 @@ class FormController extends Controller
             if (Auth::user()->admin == false)
                 return redirect()->route("teacher_dashboard");
         }
+    }
+    public function result_form_show(Request $request)
+    {
+        $res = $request->validate([
+            "roll_number" => "required",
+            "student_email" => "required | email",
+        ]);
+        print_r($res);
+        $ans = DB::table("students")->where("roll_number", $res["roll_number"])->first();
+        if ($ans)
+            return redirect()->route("result_route");
+        else
+            return (
+                "<script>alert('Data not founded')</script>".back()
+            );
     }
 
     public function logout()

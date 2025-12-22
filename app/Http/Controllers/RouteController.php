@@ -12,9 +12,13 @@ class RouteController extends Controller
     {
         return view("pages.home");
     }
-    public function result_route()
+    public function result_from_route()
     {
         return view("forms.result_form");
+    }
+    public function result_route()
+    {
+        return view("pages.result");
     }
     public function updates_route()
     {
@@ -22,7 +26,7 @@ class RouteController extends Controller
     }
     public function login_route()
     {
-        return vieW("forms.login_form");
+        return view("forms.login_form");
     }
 
     // admin
