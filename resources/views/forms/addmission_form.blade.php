@@ -10,7 +10,7 @@
       Addmission
     </h1>
     <div>
-      <form action="#" method="get">
+      <form action="{{ route("addmission_save") }}" method="GET">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Student Details -->
           <div class="col-span-1 md:col-span-2">
@@ -18,10 +18,19 @@
           </div>
 
           <div>
+            <label class="block text-sm font-medium mb-2">Roll number</label>
+            <input type="number" name="roll_number"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required>
+          </div>
+
+          <div>
             <label class="block text-sm font-medium mb-2">Full Name</label>
             <input type="text" name="student_name"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required>
+          </div>
+          
           </div>
 
           <div>
@@ -56,13 +65,13 @@
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required>
           </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-2">Passport Size Photo</label>
-            <input type="file" name="student_photo" accept="image/*"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required>
-          </div>
+          <!-- 
+            <div>
+              <label class="block text-sm font-medium mb-2">Passport Size Photo</label>
+              <input type="file" name="student_photo" accept="image/*"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required>
+            </div> -->
 
           <!-- Guardian Details -->
           <div class="col-span-1 md:col-span-2">
@@ -132,6 +141,16 @@
           </div>
         </div>
       </form>
+
+      @if ($errors->any())
+        <ul>
+          @foreach ($errors as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+
+      @endif
+
     </div>
   </div>
 @endsection
