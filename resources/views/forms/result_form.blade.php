@@ -19,11 +19,7 @@
           class="block w-74 rounded-md text-xl text-white bg-blue-500 hover:bg-blue-400 outline-none px-3 py-2">
           Search
         </button>
-        @php
-          if (isset($error) && !empty($error)) {
-            echo '<div class="text-red-500 text-sm mt-2">' . htmlspecialchars($error) . '</div>';
-          }
-        @endphp
+
       </form>
     </div>
   </div>
