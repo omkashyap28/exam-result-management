@@ -18,7 +18,7 @@ class StudentFactory extends Factory
     {
         $faker = fake("en_IN");
         return [
-            //
+            
         ];
     }
 }

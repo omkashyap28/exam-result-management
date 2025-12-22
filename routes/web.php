@@ -43,4 +43,7 @@ Route::controller(FormController::class)->group(function () {
     Route::post("/login/user", "login_form_route")->name("login_user");
     // logout
     Route::any("/logout", "logout")->name("logout");
+
+    // admmission
+    Route::any('/addmission-save', "addmission_form_save")->name("addmission_save");
 });
