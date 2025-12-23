@@ -1,14 +1,17 @@
 @extends('layouts.layout')
 
+@section('page-title')
+  {{$user->student_name}} - Result
+@endsection
+
 @section('dynamic-section')
   <div class="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
     <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">Exam Result</h1>
     <div class="mb-4">
+      <p class="text-lg"><span class="font-semibold">Roll No:</span> {{$user->roll_number}}</p>
       <p class="text-lg"><span class="font-semibold">Name:</span> {{$user->student_name}}</p>
       <p class="text-lg"><span class="font-semibold">Guadian Name:</span> {{$user->guardian_name}}</p>
-      <p class="text-lg"><span class="font-semibold">Roll No:</span> {{$user->roll_number}}</p>
       <p class="text-lg"><span class="font-semibold">Date of Birth:</span> {{$user->dob}}</p>
-      <p class="text-lg"><span class="font-semibold">Class:</span> 12</p>
       <p class="text-lg"><span class="font-semibold">Adress:</span> {{ $user->address . ", " . $user->city }}</p>
 
     </div>
@@ -59,9 +62,11 @@
           Download
         </button>
       </a>
-      <button class="px-2 py-1 rounded text-xl font-semibold bg-green-700 text-white">
-        Print
-      </button>
+      <a href="{{ route("print_result", $user->roll_number) }}">
+        <button class="px-2 py-1 rounded text-xl font-semibold bg-green-700 text-white">
+          Print
+        </button>
+      </a>
 
     </div>
   </div>
