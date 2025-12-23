@@ -41,7 +41,8 @@ class RouteController extends Controller
     }
     public function students_route()
     {
-        return view("pages.students");
+        $all_students = DB::table("students")->get();
+        return view("pages.students", ["students" => $all_students]);
     }
     public function admission_route()
     {
