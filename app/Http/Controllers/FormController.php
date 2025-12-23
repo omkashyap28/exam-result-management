@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use function Laravel\Prompts\alert;
 
 class FormController extends Controller
 {
@@ -18,7 +17,7 @@ class FormController extends Controller
             "gender" => "required",
             "student_email" => "required | email",
             "student_contact" => "required",
-            "student_photo" => "required",
+            "student_photo" => "nullable | image",
             "guardian_name" => "required",
             "relation" => "required",
             "guardian_email" => "required | email",
@@ -56,7 +55,7 @@ class FormController extends Controller
         }
     }
     public function result_form_show(Request $request)
-    { 
+    {
         $res = $request->validate([
             "roll_number" => "required",
             "student_email" => "required | email",
@@ -65,7 +64,10 @@ class FormController extends Controller
             try {
                 $ans = DB::table("students")->where("roll_number", $res["roll_number"])->first();
                 if ($ans)
-                    return view("pages.result", ["user" => $ans]);
+                    if ($ans->student_email == $res["student_email"])
+                        return view("pages.result", ["user" => $ans]);
+                    else
+                        return back()->withErrors(["msg" => "No record found"]);
             } catch (\Throwable $th) {
                 throw $th;
             }
