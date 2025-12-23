@@ -11,7 +11,7 @@
         Result
       </h1>
       <form action="{{ route("result_show") }}" method="GET" class="space-y-5">
-        <input type="text" name="roll_number" id="roll_number" max="14" placeholder="Student id" aria-required=""
+        <input type="text" name="roll_number" id="roll_number" max="14" placeholder="Roll number" aria-required=""
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
         <input type="emial" name="student_email" id="student_email" placeholder="Student email" required
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
@@ -21,6 +21,11 @@
         </button>
 
       </form>
+      @if($errors->any())
+        <div class="mt-4 text-red-600 font-semibold">
+          {{ $errors->first() }}
+          </div>
+      @endif
+      </div>
     </div>
-  </div>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\RouteController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthMiddleware;
@@ -47,3 +48,5 @@ Route::controller(FormController::class)->group(function () {
     // admmission
     Route::any('/addmission-save', "addmission_form_save")->name("addmission_save");
 });
+
+Route::any("/result/print/{id}", [PrintController::class, "print_result"])->name("print_result")->middleware(ResultMiddleware::class);
