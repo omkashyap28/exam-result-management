@@ -16,10 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        StudentFactory::new()->count(100)->create();
-        // User::factory(10)->create();
+        // StudentFactory::new()->count(20)->create();
+        // // User::factory(10)->create();
         // $this->call([
         //     AdminSeeder::class
         // ]);
+        $this->call([
+            SubjectSeeder::class
+        ]);
     }
 }

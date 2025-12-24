@@ -57,6 +57,6 @@ class RouteController extends Controller
     }
     public function teacher_upload_marks_route()
     {
-        return view("forms.marks_form");
+        return view("forms.marks_form", ["students" => DB::table("students")->get("roll_number")]);
     }
 }

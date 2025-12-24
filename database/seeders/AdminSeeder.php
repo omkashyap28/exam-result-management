@@ -33,7 +33,7 @@ class AdminSeeder extends Seeder
                 "father_name" => "Gajraj Kashyap",
                 "email" => "narayan.kashyap@example.com",
                 "contact" => "9876543210",
-                "admin" => true,
+                "admin" => false,
                 "address" => "Delhi, India",
                 "password" => Hash::make("password"),
                 "created_at" => now(),
