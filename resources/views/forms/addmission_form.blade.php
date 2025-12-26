@@ -13,7 +13,7 @@
       <form action="{{ route("addmission_save") }}" method="GET">
 
         @php
-          // global $roll_number;
+          // global $student_id;
           function generateRollNumber()
           {
             date_default_timezone_set("Asia/Kolkata");
@@ -27,13 +27,13 @@
         </div>
 
         <div class="relative">
-          <label class="block text-sm font-medium mb-2">Roll number</label>
-          <input type="number" name="roll_number" value="{{generateRollNumber()}}" readonly
+          <label class="block text-sm font-medium mb-2">Student ID</label>
+          <input type="number" name="student_id" value="{{generateRollNumber()}}" readonly
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required>
           <!-- <button class="absolute right-2 top-1/2" type="button" onclick="{{ generateRollNumber() }}">
-                <i class="fa-solid fa-arrows-rotate"></i>
-              </button> -->
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                  </button> -->
         </div>
         <div>
           <label class="block text-sm font-medium mb-2">Full Name</label>
@@ -80,8 +80,7 @@
     <div>
       <label class="block text-sm font-medium mb-2">Passport Size Photo</label>
       <input type="file" name="student_photo" accept="image/*"
-        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
     </div>
 
     <!-- Guardian Details -->
@@ -152,14 +151,10 @@
     </div>
   </div>
   </form>
-
-  @if ($errors->any())
-    <ul>
-      @foreach ($errors as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-
+  @if($errors->any())
+    <div class="mt-4 text-red-600 font-semibold">
+      {{ $errors->first() }}
+    </div>
   @endif
 
   </div>

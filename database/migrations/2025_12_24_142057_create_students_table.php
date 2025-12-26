@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->enum('relation', ['Father', 'Grand father', 'Mother', 'Grand mother']);
             $table->string('guardian_email', 100)->unique();
             $table->string('guardian_contact', 15)->unique();
-            $table->string('Address');
+            $table->string('address');
             $table->string('city', 50);
             $table->timestamps();
         });

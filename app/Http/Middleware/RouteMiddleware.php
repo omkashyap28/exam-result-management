@@ -17,7 +17,12 @@ class RouteMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            return redirect()->route("home");
+            if (Auth::user()->admin == true) {
+                return redirect()->route('admin_dashboard');
+            }
+            if (Auth::user()->admin == false) {
+                return redirect()->route('teacher_dashboard');
+            }
         }
         return $next($request);
     }

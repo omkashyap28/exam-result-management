@@ -9,4 +9,9 @@ class Result extends Model
 {
     /** @use HasFactory<\Database\Factories\ResultFactory> */
     use HasFactory;
+
+    protected $hidden = [
+        "created_at",
+        "updated_at",
+    ];
 }

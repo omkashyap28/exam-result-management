@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        StudentFactory::new()->count(20)->create();
+        StudentFactory::new()->count(200)->create();
         $this->call([
             AdminSeeder::class
         ]);
         $this->call([
             SubjectSeeder::class
         ]);
-        ResultFactory::new()->count(20)->create();
+        ResultFactory::new()->count(200)->create();
     }
 }

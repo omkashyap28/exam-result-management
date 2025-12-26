@@ -11,7 +11,7 @@ class FormController extends Controller
     public function addmission_form_save(Request $request)
     {
         $addmission_form_data = $request->validate([
-            "roll_number" => "required",
+            "student_id" => "required",
             "student_name" => "required",
             "dob" => "required",
             "gender" => "required",
@@ -31,12 +31,18 @@ class FormController extends Controller
             try {
                 if ($addmission_response) {
                     return redirect()->route("admin_dashboard");
+                } else {
+                    return back()
+                        ->withInput()
+                        ->withErrors($addmission_form_data);
                 }
             } catch (\Throwable $th) {
                 throw $th;
             }
         } else {
-            return back()->withErrors($addmission_form_data);
+            return back()
+                ->withInput()
+                ->withErrors($addmission_form_data);
         }
     }
 
@@ -57,17 +63,24 @@ class FormController extends Controller
     public function result_form_show(Request $request)
     {
         $res = $request->validate([
-            "roll_number" => "required",
-            "student_email" => "required | email",
+            "student_id" => "required",
         ]);
+
         if ($res) {
             try {
-                $ans = DB::table("students")->where("roll_number", $res["roll_number"])->first();
-                if ($ans)
-                    if ($ans->student_email == $res["student_email"])
-                        return view("pages.result", ["user" => $ans]);
-                    else
-                        return back()->withErrors(["msg" => "No record found"]);
+                $result = DB::table("results")
+                    ->join("students", "results.student_id", "=", "students.id")
+
+                    ->join("subjects", "results.subject_id", "=", "subjects.id")
+
+                    ->select("students.student_name", "students.student_id", "students.dob", "students.address", "students.city", "students.guardian_name", "subjects.subject_name", "results.subject_id", "results.marks_obtained", "results.exam_year", "results.grade", "results.status")
+
+                    ->where("students.student_id", $res["student_id"])
+                    ->get();
+                if ($result)
+                    return view("pages.result", ["result" => $result]);
+                else
+                    return back()->withErrors(["msg" => "No record found"]);
             } catch (\Throwable $th) {
                 throw $th;
             }

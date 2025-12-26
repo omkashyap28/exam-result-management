@@ -13,7 +13,7 @@
 
       <div class="mb-6">
         <label class="block text-gray-700 font-bold mb-2">Select Class
-          <input type="text" name="roll_number" id="roll_number"
+          <input type="text" name="student_id" id="student_id"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Roll number">
       </div>

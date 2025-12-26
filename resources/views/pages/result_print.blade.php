@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $print_data->student_name }} - Result</title>
+    <title>{{ $print_data[0]->student_name }} - Result</title>
 
     <style>
         body {
@@ -99,7 +100,7 @@
         <div class="header">
             <h2>ABC Public School</h2>
             <p>Examination Result</p>
-            <p>Academic Year: {{ $print_data->year ?? '2024-25' }}</p>
+            <p>Academic Year: {{ $print_data[0]->year ?? '2024-25' }}</p>
         </div>
 
         <!-- Student Information -->
@@ -107,15 +108,15 @@
             <table>
                 <tr>
                     <td><strong>Student Name</strong></td>
-                    <td>{{ $print_data->student_name }}</td>
+                    <td>{{ $print_data[0]->student_name }}</td>
                 </tr>
                 <tr>
                     <td><strong>Roll Number</strong></td>
-                    <td>{{ $print_data->roll_number }}</td>
+                    <td>{{ $print_data[0]->student_id }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Father's Name</strong></td>
-                    <td>{{ $print_data->guardian_name }}</td>
+                    <td><strong>Guardian's Name</strong></td>
+                    <td>{{ $print_data[0]->guardian_name }}</td>
                 </tr>
             </table>
         </div>
@@ -123,22 +124,26 @@
         <!-- Marks Table -->
         <div class="marks">
             <table>
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Max Marks</th>
-                        <th>Obtained Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    // marks loop
-                </tbody>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks Obtained</th>
+                    <th>Total Marks</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>{{ $print_data[0]->subject_name }}</td>
+                    <td>{{ $print_data[0]->marks_obtained }}</td>
+                    <td>100</td>
+                    <td>{{ $print_data[0]->grade }}</td>
+                </tr>
             </table>
-        </div>
 
-        <!-- Result Summary -->
-        <div class="result-summary">
-            // result
+            <!-- Result Summary -->
+            <div class="result-summary">
+                <p class="text-xl font-semibold">Total: 100 / {{ $print_data[0]->marks_obtained }}</p>
+                <p class="text-lg mt-2">Result: {{ $print_data[0]->status }}</p>
+            </div>
+
         </div>
 
         <!-- Footer -->
@@ -157,4 +162,5 @@
     </div>
 
 </body>
+
 </html>

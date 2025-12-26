@@ -14,7 +14,7 @@
         <table class="w-full border-collapse border border-gray-300">
           <thead class="bg-gray-200 sticky top-0">
             <tr>
-              <th class="border border-gray-300 px-4 py-2 text-left">Roll number</th>
+              <th class="border border-gray-300 px-4 py-2 text-left">Student ID</th>
               <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
               <th class="border border-gray-300 px-4 py-2 text-left">Gender</th>
               <th class="border border-gray-300 px-4 py-2 text-left">Contact</th>
@@ -29,7 +29,7 @@
           <tbody>
             @foreach ($students as $student)
               <tr class="hover:bg-gray-100">
-                <td class="border border-gray-300 px-4 py-2">{{$student->roll_number}}</td>
+                <td class="border border-gray-300 px-4 py-2">{{$student->student_id}}</td>
                 <td class="border border-gray-300 px-4 py-2">{{$student->student_name}}</td>
                 <td class="border border-gray-300 px-4 py-2">{{$student->gender}}</td>
                 <td class="border border-gray-300 px-4 py-2">{{$student->student_contact }}</td>

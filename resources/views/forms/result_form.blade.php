@@ -11,9 +11,7 @@
         Result
       </h1>
       <form action="{{ route("result_show") }}" method="GET" class="space-y-5">
-        <input type="text" name="roll_number" id="roll_number" max="14" placeholder="Roll number" aria-required=""
-          class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
-        <input type="emial" name="student_email" id="student_email" placeholder="Student email" required
+        <input type="search" name="student_id" id="student_id" autofocus placeholder="Student ID" aria-required=""
           class="block w-74 rounded-md border border-gray-800  focus:border-blue-500 outline-none px-3 py-2">
         <button type="submit"
           class="block w-74 rounded-md text-xl text-white bg-blue-500 hover:bg-blue-400 outline-none px-3 py-2">

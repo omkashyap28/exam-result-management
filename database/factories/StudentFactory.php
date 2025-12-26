@@ -20,7 +20,7 @@ class StudentFactory extends Factory
         return [
             "student_id" => $faker->numerify("########"),
             "student_name" => $faker->name(),
-            "dob" => $faker->date("Y-m-d", "2007"),
+            "dob" => $faker->date("Y-m-d", "-15 years"),
             "gender" => $faker->randomElement(["Male", "Female", "Other"]),
             "student_email" => $faker->unique()->safeEmail(),
             "student_contact" => $faker->unique()->numberBetween(9000000000, 9999999999),

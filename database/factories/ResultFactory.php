@@ -39,12 +39,12 @@ class ResultFactory extends Factory
             $status = "fail";
         }
         return [
-            "student_id" => Student::inRandomOrder()->first()->id,
+            "student_id" => Student::distinct()->inRandomOrder()->first()->id,
             "subject_id" => Subject::inRandomOrder()->first()->id,
             "marks_obtained" => $marks,
             "grade" => $grade,
             "status" => $status,
-            "exam_year" => 2024-25,
+            "exam_year" => 2025,
         ];
     }
 }
